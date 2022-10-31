@@ -3,7 +3,7 @@ import dataJson from '../data.json'
 import { COLUMNS } from "./Columns";
 import { useMemo } from 'react';
 
-export const BasicTable = () => {
+const BasicTable = () => {
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => dataJson, [])
@@ -63,3 +63,5 @@ export const BasicTable = () => {
         </table>
     )
 }
+
+export default BasicTable;
