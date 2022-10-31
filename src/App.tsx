@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import data from './data.json';
 import Compo from './Compo';
 import TableDemo from './TableDemo';
-import { BasicTable } from './components/BasicTable';
+import BasicTable from './components/BasicTable';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
 
       
     </Container>
-    
+    <BasicTable/>
     </div>
   );
 }
