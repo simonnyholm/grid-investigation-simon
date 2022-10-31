@@ -4,16 +4,22 @@ import Container from 'react-bootstrap/Container';
 import data from './data.json';
 import Compo from './Compo';
 import TableDemo from './TableDemo';
+import { BasicTable } from './components/BasicTable';
 
 
 function App() {
   return (
+    <div>
     <Container>
-      <TableDemo/>
-      { data.map((group) => (
+      
+     { data.map((group) => (
           <Compo name={ group.amount.toString() } />
       ))}
+
+      
     </Container>
+    
+    </div>
   );
 }
 
