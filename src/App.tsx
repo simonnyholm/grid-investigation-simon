@@ -3,13 +3,14 @@ import './App.css';
 import Container from 'react-bootstrap/Container';
 import data from './data.json';
 import RawTableExample from './RawTableExample';
+import Compo from './Compo';
 
 function App() {
   return (
     <Container>
       <RawTableExample />
       { data.map((group) => (
-          <h1 key={group.id}>{ group.amount }</h1>
+          <Compo key={group.id} name={ group.amount.toString() } />
       ))}
     </Container>
   );

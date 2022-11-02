@@ -10,6 +10,7 @@
     "@types/node": "^16.18.0",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
+    "@types/react-table": "^7.7.12",
     "ag-grid-community": "^28.2.0",
     "ag-grid-react": "^28.2.0",
     "bootstrap": "^5.2.2",
