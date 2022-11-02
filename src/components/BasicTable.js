@@ -2,8 +2,11 @@ import { useTable } from "react-table";
 import dataJson from '../data.json'
 import { COLUMNS } from "./Columns";
 import { useMemo } from 'react';
+import RowComponent from "./RowComponent";
 
 const BasicTable = () => {
+
+
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => dataJson, [])
@@ -13,7 +16,7 @@ const BasicTable = () => {
         data
     })
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps} = tableInstance
 
     return (
         <table {...getTableProps()}>
@@ -40,7 +43,9 @@ const BasicTable = () => {
                     rows.map(row => {
                         prepareRow(row)
                         return (
-                                <tr key="" {...row.getRowProps()}>
+                                <>
+                                <RowComponent row={row} getRowProps={getRowProps}/>
+                                {/* <tr key="" {...row.getRowProps()}>
                                     {
                                         row.cells.map( cell => {
                                             return  (
@@ -53,7 +58,9 @@ const BasicTable = () => {
                                         })
                                     }
 
-                                </tr>
+                                </tr> */}
+                                
+                                </>
                             )
                     })
                 }
