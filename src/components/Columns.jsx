@@ -1,17 +1,22 @@
+import ColumnFilter from '../components/ColumnFilter.js'
+
 export const COLUMNS = [
 
 {
     Header: "Id",
-    accessor: "patient.id"
+    accessor: "patient.id",
+    Filter: ColumnFilter
 },
 {
     Header: 'Borger',
-    accessor: 'patient.name'
+    accessor: 'patient.name',
+    Filter: ColumnFilter
 
 },
 {
     Header: 'Amount',
-    accessor: 'amount'
+    accessor: 'amount',
+    Filter: ColumnFilter
 }
 ]
 
