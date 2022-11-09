@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useAsyncDebounce } from 'react-table';
 
-const ColumnFilter = ({ column }) => {
-    const { filterValue, setFilter } = column
-
-    const [value, setValue] = useState(filterValue)
+const GlobalFilter = ({ filter, setFilter }) => {
+    const [value, setValue] = useState(filter)
 
     const keyupHandler = useAsyncDebounce(value => {
         setFilter(value || undefined)
@@ -15,15 +13,16 @@ const ColumnFilter = ({ column }) => {
 
     return (
         <span>
-            <label>
-            Search:{' '}
-            <input type="text" value={value || ''} onChange={(e) => {
+            <label>Search: {'  '}<input type="text" value={value || ''} onChange={e => {
                 setValue(e.target.value)
                 keyupHandler(e.target.value)
-            }}/>
-            </label>
+            }}/></label>
+            
         </span>
     )
-}
 
-export default ColumnFilter;
+}
+export default GlobalFilter;
+
+
+//Giver det mening at have global filtrering hos klienten, if not then what?
