@@ -19,7 +19,7 @@ function App() {
 
       
     </Container>
-    <BasicTable/>
+    
     <GenericTable/>
     </div>
   );
