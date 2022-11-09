@@ -1,8 +1,9 @@
-import { useTable, useSortBy, useFilters } from "react-table";
+import { useTable, useSortBy, useFilters, useGlobalFilter, usePagination } from "react-table";
 import dataJson from '../data.json'
 import { COLUMNS } from "./Columns";
 import { useMemo } from 'react';
 import RowComponent from "./RowComponent";
+import GlobalFilter from "./GlobalFilter";
 
 const GenericTable = () => {
 
@@ -15,12 +16,17 @@ const GenericTable = () => {
         columns,
         data
     },
+    useGlobalFilter,
     useFilters,
     useSortBy)
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps} = tableInstance
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state, setGlobalFilter} = tableInstance
+
+    const { globalFilter } = state
 
     return (
+        <>
+        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
         <table {...getTableProps()}>
             <thead>
                 {
@@ -76,6 +82,7 @@ const GenericTable = () => {
             </tbody>
 
         </table>
+        </>
     )
 }
 
