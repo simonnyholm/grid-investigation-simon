@@ -18,11 +18,15 @@ const GenericTable = () => {
     },
     useGlobalFilter,
     useFilters,
-    useSortBy)
+    useSortBy,
+    
+    )
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state, setGlobalFilter} = tableInstance
 
     const { globalFilter } = state
+
+    console.log("rowsLength", rows.length);
 
     return (
         <>
@@ -82,6 +86,7 @@ const GenericTable = () => {
             </tbody>
 
         </table>
+        <div><p>{rows.length}</p></div>
         </>
     )
 }
