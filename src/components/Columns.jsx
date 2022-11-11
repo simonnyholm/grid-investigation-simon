@@ -36,10 +36,21 @@ export const COLUMNS = [
         },
         {
           Header: 'Borger',
-            accessor: 'patient.name',
+          accessor: 'patient.name',
+          Filter: ColumnFilter
+        },
+        {
+            Header: 'Leverandør',
+            accessor: 'supplier.name',
             Filter: ColumnFilter
-          },
-        ]
+        },
+        {
+            Header: 'Ydelse',
+            accessor: 'transactions.name',
+            Filter: ColumnFilter
+        },
+
+    ]
         
       
 
