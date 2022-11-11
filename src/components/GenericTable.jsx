@@ -7,6 +7,35 @@ import GlobalFilter from "./GlobalFilter";
 
 const GenericTable = () => {
 
+    // const persons = dataJson.map( (person) => {
+        
+
+    //     console.log("flatPerson", flatPerson);
+
+    // });
+    // console.log("dataPersons", persons);
+
+    console.log("rawJson", dataJson);
+
+    const WhatIf = dataJson.map((person)=>{
+        
+    })
+
+    const transactionsFlat = [];
+
+    dataJson.forEach((person)=>{
+        person.transactions.forEach((transaction)=>{
+             transactionsFlat.push({
+                "debitor" : person.debtor.patientKey,
+                "PersonName" : person.patient.name,
+                "TransactionID" : transaction.id,
+                "TransactionName" : transaction.name
+            });
+        });
+    });
+
+console.log("transactionsFlat", transactionsFlat);
+
 
 
     const columns = useMemo(() => COLUMNS, [])
