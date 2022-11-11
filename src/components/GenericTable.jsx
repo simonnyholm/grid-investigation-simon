@@ -1,4 +1,4 @@
-import { useTable, useSortBy, useFilters, useGlobalFilter, usePagination } from "react-table";
+import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination } from "react-table";
 import dataJson from '../data.json'
 import { COLUMNS } from "./Columns";
 import { useMemo } from 'react';
@@ -19,51 +19,46 @@ const GenericTable = () => {
     useGlobalFilter,
     useFilters,
     useSortBy,
+    useExpanded
     
     )
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state, setGlobalFilter} = tableInstance
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state: {expanded}, setGlobalFilter} = tableInstance
 
-    const { globalFilter } = state
+    // const { globalFilter } = state
 
     console.log("rowsLength", rows.length);
 
+
     return (
         <>
-        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
+        {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/> */}
         <table {...getTableProps()}>
             <thead>
                 {
-                    headerGroups.map(headerGroup => (
-                                        
+                    headerGroups.map((headerGroup) => (            
                         <tr key="" {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps()}>
                                     <div>{column.render('Header')}</div>
                                     <button {...column.getSortByToggleProps()}>Sortér</button>
-                                    
-                                    
                                     <div>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲'): ''}</div>
                                     <div>{column.canFilter ? column.render('Filter') : null }</div>
                                 </th>
-                                
                                 ))
                             }
-
                         </tr>
                     ))
                 }
-
             </thead>
             <tbody {...getTableBodyProps()}>
                 {
-                    rows.map(row => {
+                    rows.map((row, i) => {
                         prepareRow(row)
                         return (
                                 <>
-                                
-                                <tr key="" {...row.getRowProps()}>
+                                <tr key={i} {...row.getRowProps()}>
                                     {
                                         row.cells.map( cell => {
                                             return  (
@@ -71,24 +66,20 @@ const GenericTable = () => {
                                                     {cell.render('Cell')}
                                                 </td>  
                                             )            
-                                                
-
                                         })
                                     }
-
                                 </tr>
-                                
                                 </>
                             )
                     })
                 }
-
             </tbody>
-
         </table>
         <div><p>{rows.length}</p></div>
         </>
     )
 }
+
+
 
 export default GenericTable;
