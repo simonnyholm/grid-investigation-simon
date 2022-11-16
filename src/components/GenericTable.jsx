@@ -9,9 +9,7 @@ const GenericTable = () => {
 
     console.log("rawJson", dataJson);
 
-    const WhatIf = dataJson.map((person)=>{
-        
-    })
+
 
     const transactionsFlat = [];
 
@@ -20,8 +18,10 @@ const GenericTable = () => {
              transactionsFlat.push({
                 "PersonDebitorPatientKey" : person.debtor.patientKey,
                 "PersonPatientName" : person.patient.name,
+                "PersonAmount" : person.amount,
                 "TransactionId" : transaction.id,
-                "TransactionName" : transaction.name
+                "TransactionName" : transaction.name,
+                "TransactionAmount" : transaction.amount
             });
         });
     });
