@@ -28,8 +28,8 @@ const GenericTable = () => {
         });
     });
 
-    /*
-
+    
+/*
     const modifiedData = dataJson.map((person) => {
         return {
             PersonDebitorPatientKey: person.debtor.patientKey,
@@ -39,21 +39,15 @@ const GenericTable = () => {
             subRows: { person.transactions 
             && person.transactions.map((transaction) => {
                 return {
-                  accountName: b.branchName,
-                  accountType: b.branchType,
-                  city: b.branchCity,
-                  area: b.branchArea,
-                  street: b.branchStreet,
-                  location: b.branchLocation,
-                  numberOfBranches: 0,
+                TransactionName : transaction.name,
             : null
                 };
               }),
           }
-        
+        }
       });
 
-      */
+    */  
 
     
 
