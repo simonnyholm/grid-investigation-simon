@@ -62,7 +62,7 @@ console.log("transactionsFlat", transactionsFlat);
 
 
     const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => transactionsFlat, [])
+    const data = useMemo(() => dataJson, [])
 
     const tableInstance = useTable({
         columns,
