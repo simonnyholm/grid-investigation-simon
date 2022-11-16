@@ -7,14 +7,6 @@ import GlobalFilter from "./GlobalFilter";
 
 const GenericTable = () => {
 
-    // const persons = dataJson.map( (person) => {
-        
-
-    //     console.log("flatPerson", flatPerson);
-
-    // });
-    // console.log("dataPersons", persons);
-
     console.log("rawJson", dataJson);
 
     const WhatIf = dataJson.map((person)=>{
@@ -26,9 +18,9 @@ const GenericTable = () => {
     dataJson.forEach((person)=>{
         person.transactions.forEach((transaction)=>{
              transactionsFlat.push({
-                "debitor" : person.debtor.patientKey,
-                "PersonName" : person.patient.name,
-                "TransactionID" : transaction.id,
+                "PersonDebitorPatientKey" : person.debtor.patientKey,
+                "PersonPatientName" : person.patient.name,
+                "TransactionId" : transaction.id,
                 "TransactionName" : transaction.name
             });
         });
@@ -70,10 +62,15 @@ console.log("transactionsFlat", transactionsFlat);
                             {
                                 headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps()}>
-                                    <div>{column.render('Header')}</div>
-                                    <button {...column.getSortByToggleProps()}>Sortér</button>
-                                    <div>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲'): ''}</div>
-                                    <div>{column.canFilter ? column.render('Filter') : null }</div>
+                                    
+                                    <div style={{display: "flex", paddingRight: "20px"}}>
+                                        <div>{column.render('Header')}</div>
+                                        <div>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲'): ''}</div>
+                                        <div {...column.getSortByToggleProps()}> <div style={{width: "60px", height: "100%", paddingRight: "10px"}}></div></div>
+                                        <div>{column.canFilter ? column.render('Filter') : null }</div>
+                                    </div>
+                                    
+                                    
                                 </th>
                                 ))
                             }
