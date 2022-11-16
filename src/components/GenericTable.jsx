@@ -21,17 +21,48 @@ const GenericTable = () => {
                 "PersonAmount" : person.amount,
                 "TransactionId" : transaction.id,
                 "TransactionName" : transaction.name,
-                "TransactionAmount" : transaction.amount
+                "TransactionAmount" : transaction.amount,
+                "TransactionSupplierName" : transaction.supplier.name,
+                "TransactionState" : transaction.state
             });
         });
     });
+
+    /*
+
+    const modifiedData = dataJson.map((person) => {
+        return {
+            PersonDebitorPatientKey: person.debtor.patientKey,
+            PersonPatientName: person.patient.name,
+            PersonAmount: person.amount,
+            personTransactions: person.transactions,
+            subRows: { person.transactions 
+            && person.transactions.map((transaction) => {
+                return {
+                  accountName: b.branchName,
+                  accountType: b.branchType,
+                  city: b.branchCity,
+                  area: b.branchArea,
+                  street: b.branchStreet,
+                  location: b.branchLocation,
+                  numberOfBranches: 0,
+            : null
+                };
+              }),
+          }
+        
+      });
+
+      */
+
+    
 
 console.log("transactionsFlat", transactionsFlat);
 
 
 
     const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => dataJson, [])
+    const data = useMemo(() => transactionsFlat, [])
 
     const tableInstance = useTable({
         columns,
