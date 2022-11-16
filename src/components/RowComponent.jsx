@@ -1,4 +1,4 @@
-const RowComponent = () => {
+const RowComponent = ({row, getRowProps, getCellProps}) => {
     <tr key="" {...row.getRowProps()}>
         {
             row.cells.map( cell => {

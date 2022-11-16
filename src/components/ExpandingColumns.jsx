@@ -1,7 +1,7 @@
-import ColumnFilter from '../components/ColumnFilter.js'
 import { useMemo } from 'react';
 
-export const COLUMNS = [
+export const ExpandingColumns = React.useMemo(
+    () => [
       {
         // Build our expander column
         id: 'expander', // Make sure it has an ID
@@ -29,57 +29,39 @@ export const COLUMNS = [
             ) : null,
         },
         {
-          Header: 'Debitor',
-          accessor: 'debtor.patientKey',
-          Filter: ColumnFilter
-
+          Header: 'Name',
+          columns: [
+            {
+              Header: 'First Name',
+              accessor: 'firstName',
+            },
+            {
+              Header: 'Last Name',
+              accessor: 'lastName',
+            },
+          ],
         },
         {
-          Header: 'Borger',
-          accessor: 'patient.name',
-          Filter: ColumnFilter
-        },
-        {
-            Header: 'Leverandør',
-            accessor: 'supplier.name',
-            Filter: ColumnFilter
-        },
-        {
-            Header: 'Ydelse',
-            accessor: 'transactions.name',
-            Filter: ColumnFilter
-        },
-
-    ]
-        
-      
-
-
-/*
-
-Herunder er det simple array, der ikke kan ekspanderes
-
-
-[
-
-{
-    Header: "Id",
-    accessor: "patient.id",
-    Filter: ColumnFilter
-},
-{
-    Header: 'Borger',
-    accessor: 'patient.name',
-    Filter: ColumnFilter
-
-},
-{
-    Header: 'Amount',
-    accessor: 'amount',
-    Filter: ColumnFilter
-}
-]
-
-*/
-
-//Dette array skal mulivis ind og ligge i table-komponentet, hvor header/accesser skal være variabler via props
+          Header: 'Info',
+          columns: [
+            {
+              Header: 'Age',
+              accessor: 'age',
+            },
+            {
+              Header: 'Visits',
+              accessor: 'visits',
+            },
+            {
+                Header: 'Status',
+                accessor: 'status',
+              },
+              {
+                Header: 'Profile Progress',
+                accessor: 'progress',
+              },
+            ],
+          },
+        ],
+        []
+      )
