@@ -21,7 +21,7 @@ const ColumnFilter = ({ column }) => {
 
     return (
         <>
-        <button style={{position: "relative"}} onClick={toggleFilterModal}>≡</button>
+        <button type='button' style={{position: "relative"}} onClick={toggleFilterModal}>≡</button>
         {filterModal &&
         <>
         <div onClick={toggleFilterModal} style={{background: "transparent", zIndex: "1", position: "absolute", left: "0", right: "0", top: "0", bottom: "0"}}></div>
