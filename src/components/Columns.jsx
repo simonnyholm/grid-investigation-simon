@@ -46,8 +46,13 @@ export const COLUMNS = [
         },
         {
             Header: 'Ydelse',
-            accessor: 'transactions.name',
+            accessor: 'name',
             Filter: ColumnFilter
+        },
+        {
+          Header: 'Beløb',
+          accessor: 'amount',
+          Filter: ColumnFilter
         },
 
     ]

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
+import ColumnFilter from '../components/ColumnFilter.js'
 
-export const ExpandingColumns = React.useMemo(
+export const ExpandingColumns = useMemo(
     () => [
       {
         // Build our expander column

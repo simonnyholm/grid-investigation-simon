@@ -11,27 +11,54 @@ const GenericTable = () => {
 
 
 
-    const transactionsFlat = [];
+    //const transactionsFlat = [];
 
-    dataJson.forEach((person)=>{
-        person.transactions.forEach((transaction)=>{
-             transactionsFlat.push({
-                "PersonDebitorPatientKey" : person.debtor.patientKey,
-                "PersonPatientName" : person.patient.name,
-                "PersonAmount" : person.amount,
-                "TransactionId" : transaction.id,
-                "TransactionName" : transaction.name,
-                "TransactionAmount" : transaction.amount
-            });
-        });
-    });
+    // dataJson.forEach((person)=>{
+    //     person.transactions.forEach((transaction)=>{
+    //          transactionsFlat.push({
+    //             "PersonDebitorPatientKey" : person.debtor.patientKey,
+    //             "PersonPatientName" : person.patient.name,
+    //             "PersonAmount" : person.amount,
+    //             "TransactionId" : transaction.id,
+    //             "TransactionName" : transaction.name,
+    //             "TransactionAmount" : transaction.amount,
+    //             "TransactionSupplierName" : transaction.supplier.name,
+    //             "TransactionState" : transaction.state
+    //         });
+    //     });
+    // });
 
-console.log("transactionsFlat", transactionsFlat);
+    
+
+    // const modifiedData = dataJson.map((person) => {
+    //     return {
+    //         PersonDebitorPatientKey: person.debtor.patientKey,
+    //         PersonPatientName: person.patient.name,
+    //         PersonAmount: person.amount,
+    //         personTransactions: person.transactions,
+    //         subRows:  (personTransactions) 
+    //         ? person.transactions.map((transaction) => {
+    //             return {
+    //             TransactionName : transaction.name,
+    //         : null
+    //             };
+    //           }),
+          
+    //     }
+    //   });
+
+    const flatData = dataJson.flatMap((transactionGroup) => transactionGroup.transactions);
+
+    
+
+    
+
+    console.log("flatData", flatData);
 
 
 
     const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => dataJson, [])
+    const data = useMemo(() => flatData, [])
 
     const tableInstance = useTable({
         columns,

@@ -44,8 +44,8 @@ const BasicTable = () => {
                         prepareRow(row)
                         return (
                                 <>
-                                <RowComponent row={row} getRowProps={getRowProps}/>
-                                {/* <tr key="" {...row.getRowProps()}>
+                                
+                                <tr key="" {...row.getRowProps()}>
                                     {
                                         row.cells.map( cell => {
                                             return  (
@@ -58,7 +58,7 @@ const BasicTable = () => {
                                         })
                                     }
 
-                                </tr> */}
+                                </tr>
                                 
                                 </>
                             )
