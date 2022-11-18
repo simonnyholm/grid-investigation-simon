@@ -129,6 +129,9 @@ const GenericTable = () => {
             </tbody>
         </table>
         <div><p>{rows.length}</p></div>
+        <pre>
+        <code>{JSON.stringify({ expanded: expanded }, null, 2)}</code>
+      </pre>
         </>
     )
 }
