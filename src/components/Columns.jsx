@@ -10,7 +10,7 @@ export const COLUMNS = [
             {isAllRowsExpanded ? '👇' : '👉'}
           </span>
         ),
-        Cell: ({ row }) =>
+        Cell: ({ row, rows, toggleRowExpanded }) =>
           // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
           // to build the toggle for expanding a row
           row.canExpand ? (
@@ -22,6 +22,32 @@ export const COLUMNS = [
                   // of the row
                   paddingLeft: `${row.depth * 2}rem`,
                 },
+                onClick: () => {
+                  const expandedRow = rows.find(row => row.isExpanded);
+
+                  if (expandedRow) {
+                    const isSubItemOfRow = Boolean(
+                      expandedRow && row.id.split(".")[0] === expandedRow.id
+                    );
+
+                    if (isSubItemOfRow) {
+                      const expandedSubItem = expandedRow.subRows.find(
+                        subRow => subRow.isExpanded
+                      );
+
+                      if (expandedSubItem) {
+                        const isClickedOnExpandedSubItem =
+                          expandedSubItem.id === row.id;
+                        if (!isClickedOnExpandedSubItem) {
+                          toggleRowExpanded(expandedSubItem.id, false);
+                        }
+                      }
+                    } else {
+                      toggleRowExpanded(expandedRow.id, false);
+                    }
+                  }
+                  row.toggleRowExpanded();
+                }
               })}
             >
               {row.isExpanded ? '👇' : '👉'}
