@@ -5,6 +5,8 @@ import data from './data.json';
 import RawTableExample, { ReactTable } from './RawTableExample';
 import Compo from './Compo';
 import BasicTable from './components/BasicTable';
+import GenericTable from './components/GenericTable';
+
 
 function App() {
   return (
@@ -18,7 +20,8 @@ function App() {
 
       
     </Container>
-    <BasicTable/>
+    
+    <GenericTable/>
     </div>
   );
 }
