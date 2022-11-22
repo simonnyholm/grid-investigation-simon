@@ -1,4 +1,4 @@
-import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect } from "react-table";
+import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect, useGroupBy } from "react-table";
 import dataJson from '../data.json'
 import { COLUMNS } from "./Columns";
 import { useMemo } from 'react';
@@ -36,13 +36,18 @@ const GenericTable = () => {
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => flatData, [])
+    const groupBy = useMemo(() => ["supplier.name"], []);
 
     const tableInstance = useTable({
         columns,
-        data
+        data,
+        initialState: {
+            groupBy
+        }
     },
     useGlobalFilter,
     useFilters,
+    useGroupBy,
     useSortBy,
     useExpanded,
     useRowSelect,
@@ -89,7 +94,9 @@ const GenericTable = () => {
                             {
                                 headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps()}>
-                                    
+                                    <button {...column.getGroupByToggleProps()}>
+                                        {column.isGrouped ? '🛑 ' : '👊 '}
+                                    </button>
                                     <div style={{display: "flex", paddingRight: "20px"}}>
                                         <div>{column.render('Header')}</div>
                                         <div>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲'): ''}</div>

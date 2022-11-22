@@ -12,8 +12,8 @@ function App() {
   return (
     <div>
     <Container>
-      <ReactTable />
-      <RawTableExample />
+      {/* <ReactTable />
+      <RawTableExample /> */}
       { data.map((group) => (
           <Compo key={group.id} name={ group.amount.toString() } />
       ))}
