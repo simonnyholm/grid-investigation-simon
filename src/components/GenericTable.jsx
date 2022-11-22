@@ -1,33 +1,16 @@
-import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination } from "react-table";
+import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect } from "react-table";
 import dataJson from '../data.json'
 import { COLUMNS } from "./Columns";
 import { useMemo } from 'react';
 import RowComponent from "./RowComponent";
 import GlobalFilter from "./GlobalFilter";
+import IndeterminateCheckbox from "./IndeterminateCheckbox";
+
+
 
 const GenericTable = () => {
 
     console.log("rawJson", dataJson);
-
-
-
-    //const transactionsFlat = [];
-
-    // dataJson.forEach((person)=>{
-    //     person.transactions.forEach((transaction)=>{
-    //          transactionsFlat.push({
-    //             "PersonDebitorPatientKey" : person.debtor.patientKey,
-    //             "PersonPatientName" : person.patient.name,
-    //             "PersonAmount" : person.amount,
-    //             "TransactionId" : transaction.id,
-    //             "TransactionName" : transaction.name,
-    //             "TransactionAmount" : transaction.amount,
-    //             "TransactionSupplierName" : transaction.supplier.name,
-    //             "TransactionState" : transaction.state
-    //         });
-    //     });
-    // });
-
     
 
     // const modifiedData = dataJson.map((person) => {
@@ -49,13 +32,7 @@ const GenericTable = () => {
 
     const flatData = dataJson.flatMap((transactionGroup) => transactionGroup.transactions);
 
-    
-
-    
-
     console.log("flatData", flatData);
-
-
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => flatData, [])
@@ -67,11 +44,34 @@ const GenericTable = () => {
     useGlobalFilter,
     useFilters,
     useSortBy,
-    useExpanded
-    
+    useExpanded,
+    useRowSelect,
+    hooks => {
+        hooks.visibleColumns.push(columns => [
+            // Let's make a column for selection
+            {
+              id: 'selection',
+              // The header can use the table's getToggleAllRowsSelectedProps method
+              // to render a checkbox
+              Header: ({ getToggleAllRowsSelectedProps }) => (
+                <div>
+                  <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+                </div>
+              ),
+              // The cell can use the individual row's getToggleRowSelectedProps method
+              // to the render a checkbox
+              Cell: ({ row }) => (
+                <div>
+                  <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+                </div>
+              ),
+            },
+            ...columns,
+          ])
+    }
     )
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state: {expanded}, setGlobalFilter} = tableInstance
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state: {expanded, selectedRowIds}, setGlobalFilter} = tableInstance
 
     // const { globalFilter } = state
 
