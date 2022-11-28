@@ -1,5 +1,5 @@
 import ColumnFilter from '../components/ColumnFilter.js'
-import { useMemo } from 'react';
+
 
 export const COLUMNS = [
       {
@@ -24,6 +24,7 @@ export const COLUMNS = [
                 },
                 onClick: () => {
                   const expandedRow = rows.find(row => row.isExpanded);
+                  // ExpandedRow: rows, som er expanderede
 
                   if (expandedRow) {
                     const isSubItemOfRow = Boolean(
@@ -45,8 +46,13 @@ export const COLUMNS = [
                     } else {
                       toggleRowExpanded(expandedRow.id, false);
                     }
+                    
                   }
+                  else {
                   row.toggleRowExpanded();
+                  console.log("unExpand");  
+                  }
+
                 }
               })}
             >
@@ -76,10 +82,41 @@ export const COLUMNS = [
             Filter: ColumnFilter
         },
         {
+          Header: 'Periode, start',
+          accessor: 'billingStartDate',
+          Filter: ColumnFilter
+        },
+        {
+          Header: 'Periode, slut (merge?)',
+          accessor: 'billingEndDate',
+          Filter: ColumnFilter
+        },
+        {
           Header: 'Beløb',
           accessor: 'amount',
           Filter: ColumnFilter
         },
+        {
+          Header: 'Konto',
+          accessor: 'accountDisplayValue',
+          Filter: ColumnFilter
+        },
+        {
+          Header: 'Betalingsart',
+          accessor: 'accountPaymentType',
+          Filter: ColumnFilter
+        },
+        {
+          Header: 'Status (if/else?',
+          accessor: 'state',
+          Filter: ColumnFilter
+        },
+        {
+          Header: 'Overført',
+          accessor: 'ExportTime',
+          Filter: ColumnFilter
+        },
+        
 
     ]
         
