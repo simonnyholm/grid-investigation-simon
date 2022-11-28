@@ -36,7 +36,7 @@ const GenericTable = () => {
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => flatData, [])
-    const groupBy = useMemo(() => ["supplier.name"], []);
+    const groupBy = useMemo(() => ["patient.name"], []);
 
     const tableInstance = useTable({
         columns,
@@ -94,13 +94,11 @@ const GenericTable = () => {
                             {
                                 headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps()}>
-                                    <button {...column.getGroupByToggleProps()}>
-                                        {column.isGrouped ? '🛑 ' : '👊 '}
-                                    </button>
+
                                     <div style={{display: "flex", paddingRight: "20px"}}>
                                         <div>{column.render('Header')}</div>
                                         <div>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲'): ''}</div>
-                                        <div {...column.getSortByToggleProps()}> <div style={{width: "60px", height: "100%", paddingRight: "10px"}}></div></div>
+                                        <div {...column.getSortByToggleProps()}> <div style={{width: "30px", height: "100%", paddingRight: "10px"}}></div></div>
                                         <div>{column.canFilter ? column.render('Filter') : null }</div>
                                     </div>
                                     
