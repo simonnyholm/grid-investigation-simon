@@ -11,16 +11,7 @@ import GenericTable from './components/GenericTable';
 function App() {
   return (
     <div>
-    <Container>
-      {/* <ReactTable />
-      <RawTableExample /> */}
-      { data.map((group) => (
-          <Compo key={group.id} name={ group.amount.toString() } />
-      ))}
 
-      
-    </Container>
-    
     <GenericTable/>
     </div>
   );
