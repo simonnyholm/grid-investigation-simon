@@ -1,4 +1,8 @@
 import ColumnFilter from '../components/ColumnFilter.js'
+import { BsChevronRight } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
+import { HiChevronRight } from "react-icons/hi";
+import { HiChevronDown } from "react-icons/hi";
 
 
 export const COLUMNS = [
@@ -7,7 +11,7 @@ export const COLUMNS = [
         id: 'expander', // Make sure it has an ID
         Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
           <span {...getToggleAllRowsExpandedProps()}>
-            {isAllRowsExpanded ? '👇' : '👉'}
+            {isAllRowsExpanded ? <BsChevronDown size={20}/> : <BsChevronRight size={20}/>}
           </span>
         ),
         Cell: ({ row, rows, toggleRowExpanded }) =>
@@ -56,7 +60,7 @@ export const COLUMNS = [
                 }
               })}
             >
-              {row.isExpanded ? '👇' : '👉'}
+              {row.isExpanded ? <BsChevronDown size={15}/> : <BsChevronRight size={15}/>}
             </span>
             ) : null,
         },
