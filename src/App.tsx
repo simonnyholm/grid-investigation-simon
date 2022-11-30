@@ -10,7 +10,7 @@ import GenericTable from './components/GenericTable';
 
 function App() {
   return (
-    <div style={{padding: "80px 15px 15px 15px"}}>
+    <div style={{padding: "15px"}}>
 
     <GenericTable/>
     </div>

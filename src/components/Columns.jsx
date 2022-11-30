@@ -1,8 +1,8 @@
 import ColumnFilter from '../components/ColumnFilter.js'
 import { BsChevronRight } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
-import { HiChevronRight } from "react-icons/hi";
-import { HiChevronDown } from "react-icons/hi";
+import genericTableCss from "./GenericTable.css"
+
 
 
 export const COLUMNS = [

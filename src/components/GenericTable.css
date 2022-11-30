@@ -1,0 +1,119 @@
+
+/* Standard-setup */
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+}
+
+/*Filter-modal*/
+
+.columnFilter__filterBtn {
+    position: relative;
+}
+
+.filterModal {
+    border: 0.5px solid rgb(173, 173, 173) !important;
+    padding: 5px !important;
+    position: absolute !important;
+    background-color: rgb(211, 211, 211) !important;
+    margin-left: -80px !important;
+    margin-top: -65px !important;;
+    z-index: 2 !important;
+    display: flex;
+    border-radius: 10px 10px 0 10px;
+    width: 100px;
+
+
+}
+
+.filterModalInput {
+    width: 70px;
+    height: 25px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 0.5px solid rgb(173, 173, 173) !important;
+}
+
+.transparentBg {
+    background: transparent !important;
+    z-index: 1 !important;
+    position: absolute !important;
+    height: 1500px;
+    width: 10000px;
+    left: -1000px !important;
+    right: 0px !important;
+    top: -500px !important;
+    bottom: 0 !important;
+}
+
+/*Header-buttons*/
+
+
+
+.theadBtn {
+    border: none;
+    background-color: transparent;
+}
+
+/*Tabel generelt*/
+
+table {
+    width: 100%;
+}
+
+.topRow {
+  background-color: cornflowerblue; 
+  position: sticky;
+  top: 0;
+  padding: 20px;
+  width: 100%;
+
+ 
+}
+
+.topRow tr{
+    width: 100%;
+}
+
+thead tr {
+    position: sticky;
+    top: 0;
+    padding-top: 20px;
+    background-color: #c6d197;
+
+
+}
+
+
+
+/* tbody {
+    margin-top: 150px !important;
+    
+} */
+
+
+thead tr th:nth-child(1) div button {
+    display: none;
+}
+
+thead tr th:nth-child(3) div button {
+    display: none;
+}
+
+
+/*columnTH*/
+
+
+
+.columnThDiv {
+    display: flex;
+}
+
+.columnThDiv__headerText {
+ font-size: 14px;
+}
+

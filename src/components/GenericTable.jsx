@@ -5,6 +5,10 @@ import { useMemo } from 'react';
 import RowComponent from "./RowComponent";
 import GlobalFilter from "./GlobalFilter";
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
+import { TbArrowsSort } from "react-icons/tb";
+import { TbSortDescending } from "react-icons/tb";
+import { TbSortAscending } from "react-icons/tb";
+import genericTableCss from "./GenericTable.css"
 
 
 
@@ -88,17 +92,17 @@ const GenericTable = () => {
         {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/> */}
         <table {...getTableProps()}>
             <thead>
+               
                 {
                     headerGroups.map((headerGroup) => (            
-                        <tr key="" {...headerGroup.getHeaderGroupProps()}>
+                        <tr className="theadRow" key="" {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps()}>
 
-                                    <div style={{display: "flex", paddingRight: "20px"}}>
-                                        <div>{column.render('Header')}</div>
-                                        <div>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲'): ''}</div>
-                                        <div {...column.getSortByToggleProps()}> <div style={{width: "30px", height: "100%", paddingRight: "10px"}}></div></div>
+                                    <div className="columnThDiv">
+                                        <div className="columnThDiv__headerText">{column.render('Header')}</div>
+                                        <button className="sortBtn theadBtn" title={column.isSorted ? (column.isSortedDesc ? "Sorterer faldende, klik for at sortere stigende" : "Sorterer stigende, klik for fjerne sortering"): "Sortér kolonne"} alt={column.isSorted ? (column.isSortedDesc ? "Sorterer faldende, klik for at sortere stigende" : "Sorterer stigende, klik for fjerne sortering"): "Sortér kolonne"} {...column.getSortByToggleProps()}>{column.isSorted ? (column.isSortedDesc ? <TbSortDescending/> : <TbSortAscending/>): <TbArrowsSort/>}</button>
                                         <div>{column.canFilter ? column.render('Filter') : null }</div>
                                     </div>
                                     
