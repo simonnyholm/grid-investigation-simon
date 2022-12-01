@@ -1,5 +1,9 @@
 import ColumnFilter from '../components/ColumnFilter.js'
-import { useMemo } from 'react';
+import { BsChevronRight } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
+import genericTableCss from "./GenericTable.css"
+
+
 
 export const COLUMNS = [
       {
@@ -7,7 +11,7 @@ export const COLUMNS = [
         id: 'expander', // Make sure it has an ID
         Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
           <span {...getToggleAllRowsExpandedProps()}>
-            {isAllRowsExpanded ? '👇' : '👉'}
+            {isAllRowsExpanded ? <BsChevronDown size={20}/> : <BsChevronRight size={20}/>}
           </span>
         ),
         Cell: ({ row, rows, toggleRowExpanded }) =>
@@ -24,6 +28,7 @@ export const COLUMNS = [
                 },
                 onClick: () => {
                   const expandedRow = rows.find(row => row.isExpanded);
+                  // ExpandedRow: rows, som er expanderede
 
                   if (expandedRow) {
                     const isSubItemOfRow = Boolean(
@@ -45,12 +50,17 @@ export const COLUMNS = [
                     } else {
                       toggleRowExpanded(expandedRow.id, false);
                     }
+                    
                   }
+                  else {
                   row.toggleRowExpanded();
+                  console.log("unExpand");  
+                  }
+
                 }
               })}
             >
-              {row.isExpanded ? '👇' : '👉'}
+              {row.isExpanded ? <BsChevronDown size={15}/> : <BsChevronRight size={15}/>}
             </span>
             ) : null,
         },
@@ -76,10 +86,36 @@ export const COLUMNS = [
             Filter: ColumnFilter
         },
         {
+          Header: 'Periode',
+          accessor: 'billingStartDate',
+          Filter: ColumnFilter
+        },
+        {
           Header: 'Beløb',
           accessor: 'amount',
           Filter: ColumnFilter
         },
+        {
+          Header: 'Konto',
+          accessor: 'accountDisplayValue',
+          Filter: ColumnFilter
+        },
+        {
+          Header: 'Betalingsart',
+          accessor: 'accountPaymentType',
+          Filter: ColumnFilter
+        },
+        {
+          Header: 'Status',
+          accessor: 'state',
+          Filter: ColumnFilter
+        },
+        {
+          Header: 'Overført',
+          accessor: 'ExportTime',
+          Filter: ColumnFilter
+        },
+        
 
     ]
         

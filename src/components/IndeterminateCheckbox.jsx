@@ -1,4 +1,5 @@
 import { forwardRef, useRef, useEffect } from 'react';
+import genericTableCss from "./GenericTable.css"
 
 const IndeterminateCheckbox = forwardRef(
     ({ indeterminate, ...rest }, ref) => {

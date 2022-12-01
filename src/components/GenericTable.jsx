@@ -5,6 +5,13 @@ import { useMemo } from 'react';
 import RowComponent from "./RowComponent";
 import GlobalFilter from "./GlobalFilter";
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
+import { TbArrowsSort } from "react-icons/tb";
+import { TbSortDescending } from "react-icons/tb";
+import { TbSortAscending } from "react-icons/tb";
+import genericTableCss from "./GenericTable.css"
+import { useState } from 'react';
+import MarkedState from "./MarkedState";
+
 
 
 
@@ -36,7 +43,10 @@ const GenericTable = () => {
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => flatData, [])
-    const groupBy = useMemo(() => ["supplier.name"], []);
+    const groupBy = useMemo(() => ["patient.name"], []);
+
+    const [tdValue, setTdValue] =  useState(false);
+    const [tdValueArray, setTdValueArray] =  useState(false);
 
     const tableInstance = useTable({
         columns,
@@ -82,25 +92,29 @@ const GenericTable = () => {
 
     console.log("rowsLength", rows.length);
 
+    console.log("tdValue", tdValue);
+
+    // console.log("tdValueArray", tdValueArray);
+
 
     return (
         <>
         {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/> */}
         <table {...getTableProps()}>
+            
             <thead>
+               
+               <tr className="topBar"></tr>
                 {
                     headerGroups.map((headerGroup) => (            
-                        <tr key="" {...headerGroup.getHeaderGroupProps()}>
+                        <tr className="theadRow" key="" {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps()}>
-                                    <button {...column.getGroupByToggleProps()}>
-                                        {column.isGrouped ? '🛑 ' : '👊 '}
-                                    </button>
-                                    <div style={{display: "flex", paddingRight: "20px"}}>
-                                        <div>{column.render('Header')}</div>
-                                        <div>{column.isSorted ? (column.isSortedDesc ? '▼' : '▲'): ''}</div>
-                                        <div {...column.getSortByToggleProps()}> <div style={{width: "60px", height: "100%", paddingRight: "10px"}}></div></div>
+
+                                    <div className="columnThDiv">
+                                        <div className="columnThDiv__headerText">{column.render('Header')}</div>
+                                        <button className="sortBtn theadBtn" title={column.isSorted ? (column.isSortedDesc ? "Sorterer faldende, klik for at sortere stigende" : "Sorterer stigende, klik for fjerne sortering"): "Sortér kolonne"} alt={column.isSorted ? (column.isSortedDesc ? "Sorterer faldende, klik for at sortere stigende" : "Sorterer stigende, klik for fjerne sortering"): "Sortér kolonne"} {...column.getSortByToggleProps()}>{column.isSorted ? (column.isSortedDesc ? <TbSortDescending/> : <TbSortAscending/>): <TbArrowsSort/>}</button>
                                         <div>{column.canFilter ? column.render('Filter') : null }</div>
                                     </div>
                                     
@@ -122,7 +136,7 @@ const GenericTable = () => {
                                     {
                                         row.cells.map( cell => {
                                             return  (
-                                                <td {...cell.getCellProps()}>
+                                                <td {...cell.getCellProps()} onClick={(e) => {{setTdValue(e.target.innerText)}}}>
                                                     {cell.render('Cell')}
                                                 </td>  
                                             )            
@@ -136,9 +150,7 @@ const GenericTable = () => {
             </tbody>
         </table>
         <div><p>{rows.length}</p></div>
-        <pre>
-        <code>{JSON.stringify({ expanded: expanded }, null, 2)}</code>
-      </pre>
+       
         </>
     )
 }
