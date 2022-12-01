@@ -9,6 +9,9 @@ import { TbArrowsSort } from "react-icons/tb";
 import { TbSortDescending } from "react-icons/tb";
 import { TbSortAscending } from "react-icons/tb";
 import genericTableCss from "./GenericTable.css"
+import { useState } from 'react';
+import MarkedState from "./MarkedState";
+
 
 
 
@@ -41,6 +44,9 @@ const GenericTable = () => {
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => flatData, [])
     const groupBy = useMemo(() => ["patient.name"], []);
+
+    const [tdValue, setTdValue] =  useState(false);
+    const [tdValueArray, setTdValueArray] =  useState(false);
 
     const tableInstance = useTable({
         columns,
@@ -86,13 +92,19 @@ const GenericTable = () => {
 
     console.log("rowsLength", rows.length);
 
+    console.log("tdValue", tdValue);
+
+    // console.log("tdValueArray", tdValueArray);
+
 
     return (
         <>
         {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/> */}
         <table {...getTableProps()}>
+            
             <thead>
                
+               <tr className="topBar"></tr>
                 {
                     headerGroups.map((headerGroup) => (            
                         <tr className="theadRow" key="" {...headerGroup.getHeaderGroupProps()}>
@@ -124,7 +136,7 @@ const GenericTable = () => {
                                     {
                                         row.cells.map( cell => {
                                             return  (
-                                                <td {...cell.getCellProps()}>
+                                                <td {...cell.getCellProps()} onClick={(e) => {{setTdValue(e.target.innerText)}}}>
                                                     {cell.render('Cell')}
                                                 </td>  
                                             )            
@@ -138,9 +150,7 @@ const GenericTable = () => {
             </tbody>
         </table>
         <div><p>{rows.length}</p></div>
-        <pre>
-        <code>{JSON.stringify({ expanded: expanded }, null, 2)}</code>
-      </pre>
+       
         </>
     )
 }
