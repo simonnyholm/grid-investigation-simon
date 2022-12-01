@@ -86,13 +86,8 @@ export const COLUMNS = [
             Filter: ColumnFilter
         },
         {
-          Header: 'Periode, start',
+          Header: 'Periode',
           accessor: 'billingStartDate',
-          Filter: ColumnFilter
-        },
-        {
-          Header: 'Periode, slut (merge?)',
-          accessor: 'billingEndDate',
           Filter: ColumnFilter
         },
         {
@@ -111,7 +106,7 @@ export const COLUMNS = [
           Filter: ColumnFilter
         },
         {
-          Header: 'Status (if/else?',
+          Header: 'Status',
           accessor: 'state',
           Filter: ColumnFilter
         },
