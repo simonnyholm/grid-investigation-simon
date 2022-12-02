@@ -11,7 +11,7 @@ export const COLUMNS = [
         id: 'expander', // Make sure it has an ID
         Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
           <span {...getToggleAllRowsExpandedProps()}>
-            {isAllRowsExpanded ? <BsChevronDown size={20}/> : <BsChevronRight size={20}/>}
+            {isAllRowsExpanded ? <BsChevronDown size={18}/> : <BsChevronRight size={18}/>}
           </span>
         ),
         Cell: ({ row, rows, toggleRowExpanded }) =>

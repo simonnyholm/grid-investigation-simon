@@ -3,6 +3,7 @@ import { useAsyncDebounce } from 'react-table';
 import { RiFileSearchLine } from "react-icons/ri";
 import { RiFileSearchFill } from "react-icons/ri";
 import { RiCloseCircleLine } from "react-icons/ri";
+import { BiChevronUpCircle } from "react-icons/bi"
 
 import genericTableCss from "./GenericTable.css"
 
@@ -48,7 +49,8 @@ const ColumnFilter = ({ column }) => {
                 setFilterInput(e.target.value)
             }}/>
             </label>
-            <div className='closeFilterModal' onClick={toggleFilterModal}><RiCloseCircleLine/></div>
+            {/* <div className='closeFilterModal' onClick={(e) => setFilterInput(null)}><RiCloseCircleLine/></div> */}
+            <div className='closeFilterModal' onClick={toggleFilterModal}><BiChevronUpCircle/></div>
         </div>
         </>
         
