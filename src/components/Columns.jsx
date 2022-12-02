@@ -118,35 +118,8 @@ export const COLUMNS = [
         
 
     ]
-        
-      
 
+// Herover defineres columns med id, Header, cell, accessor og Filter
+// Vi skal finde ud af, om korrekt formattering af dato, valuta mv og rendering af oversættelser og fx relevante status-beskeder, sker her(?)
 
-/*
-
-Herunder er det simple array, der ikke kan ekspanderes
-
-
-[
-
-{
-    Header: "Id",
-    accessor: "patient.id",
-    Filter: ColumnFilter
-},
-{
-    Header: 'Borger',
-    accessor: 'patient.name',
-    Filter: ColumnFilter
-
-},
-{
-    Header: 'Amount',
-    accessor: 'amount',
-    Filter: ColumnFilter
-}
-]
-
-*/
-
-//Dette array skal mulivis ind og ligge i table-komponentet, hvor header/accesser skal være variabler via props
+//Dette array skal mulivis ind og ligge i table-komponentet, hvor header/accesser skal være variabler via props - Stadig relevant?
