@@ -149,7 +149,7 @@ const GenericTable = () => {
                 }
             </tbody>
         </table>
-        <div><p>{rows.length}</p></div>
+        <p className="rowsLength">{rows.length}</p>
        
         </>
     )
