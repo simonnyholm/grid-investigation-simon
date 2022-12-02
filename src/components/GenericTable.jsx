@@ -2,51 +2,33 @@ import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagin
 import dataJson from '../data.json'
 import { COLUMNS } from "./Columns";
 import { useMemo } from 'react';
-import RowComponent from "./RowComponent";
-import GlobalFilter from "./GlobalFilter";
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
 import { TbArrowsSort } from "react-icons/tb";
 import { TbSortDescending } from "react-icons/tb";
 import { TbSortAscending } from "react-icons/tb";
-import genericTableCss from "./GenericTable.css"
 import { useState } from 'react';
-import MarkedState from "./MarkedState";
-
-
 
 
 const GenericTable = () => {
 
-    console.log("rawJson", dataJson);
-    
-
-    // const modifiedData = dataJson.map((person) => {
-    //     return {
-    //         PersonDebitorPatientKey: person.debtor.patientKey,
-    //         PersonPatientName: person.patient.name,
-    //         PersonAmount: person.amount,
-    //         personTransactions: person.transactions,
-    //         subRows:  (personTransactions) 
-    //         ? person.transactions.map((transaction) => {
-    //             return {
-    //             TransactionName : transaction.name,
-    //         : null
-    //             };
-    //           }),
-          
-    //     }
-    //   });
+    // Here we flatMap the indivdual transaction arrays into one flat array
 
     const flatData = dataJson.flatMap((transactionGroup) => transactionGroup.transactions);
 
     console.log("flatData", flatData);
 
+    // Column definitions and groupBy as well as thge main data source is declared
+
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => flatData, [])
     const groupBy = useMemo(() => ["patient.name"], []);
 
+    // onClick innerText Variable is declared
+
     const [tdValue, setTdValue] =  useState(false);
     const [tdValueArray, setTdValueArray] =  useState(false);
+
+    // React-table hooks are declared and the row selection component is rendered into the table
 
     const tableInstance = useTable({
         columns,
@@ -86,9 +68,10 @@ const GenericTable = () => {
     }
     )
 
+    // Props from TableInstance is destructured
+
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state: {expanded, selectedRowIds}, setGlobalFilter} = tableInstance
 
-    // const { globalFilter } = state
 
     console.log("rowsLength", rows.length);
 
@@ -97,9 +80,13 @@ const GenericTable = () => {
     // console.log("tdValueArray", tdValueArray);
 
 
+    // UI is rendered along with a bit of contitional rendering of sortBy buttons and their respective alt-tags
+    // as well as a click event saving innerText values of the tabel divitions being clicked - these could also be pushed into an array - could this be useful?
+    // At the bottom a rows.length counter is rendered - useful?
+
+
     return (
         <>
-        {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/> */}
         <table {...getTableProps()}>
             
             <thead>

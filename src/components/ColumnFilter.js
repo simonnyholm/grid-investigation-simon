@@ -26,11 +26,11 @@ const ColumnFilter = ({ column }) => {
         setFilter(value || undefined)
     }, 400)
 
-    //Herover i keyupHandler forsinker useAsyncDebounce onChange-eventet med 400 ms efter sidste keyup-event, 
-    //så der ikke sker en masse rodede ændringer i tabellen, inden den ønskede rendering vises
+    // Herover i keyupHandler forsinker useAsyncDebounce onChange-eventet med 400 ms efter sidste keyup-event, 
+    // så der ikke sker en masse rodede ændringer i tabellen, inden den ønskede rendering vises
 
-    //Herunder returneres et button-tag med et state, som renderer en modal med et input-tag og en gennemsigtig baggrund
-    //Styling er inline-styling. Hvordan spiller styling i forhold til bootstrap?
+    // Herunder returneres et button-tag med et state, som renderer en modal med et input-tag og en gennemsigtig baggrund
+    // Hvordan fjerner vi aíndhold i FilterInput, mens vi samtidig sikrer os, at den renderer påny?
 
     return (
         <>
