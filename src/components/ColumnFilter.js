@@ -4,6 +4,8 @@ import { RiFileSearchLine } from "react-icons/ri";
 import { RiFileSearchFill } from "react-icons/ri";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { BiChevronUpCircle } from "react-icons/bi"
+import { HiOutlineFilter } from "react-icons/hi"
+import { HiFilter } from "react-icons/hi"
 
 import genericTableCss from "./GenericTable.css"
 
@@ -19,7 +21,6 @@ const ColumnFilter = ({ column }) => {
 
     function toggleFilterModal() {
         setFilterModal(!filterModal);
-        
     }
 
     const keyupHandler = useAsyncDebounce(value => {
@@ -34,7 +35,7 @@ const ColumnFilter = ({ column }) => {
 
     return (
         <>
-        <button type='button' className='columnFilter__filterBtn theadBtn' style={{position: "relative"}} onClick={toggleFilterModal}>{!filterInput.length < 1 ? <RiFileSearchFill/> : <RiFileSearchLine/>}</button>
+        <button type='button' className='columnFilter__filterBtn theadBtn' style={{position: "relative"}} onClick={toggleFilterModal}>{!filterInput.length < 1 ? <HiFilter size={14}/> : <HiOutlineFilter size={14}/>}</button>
         {filterModal &&
         <>
         <div className='transparentBg' onClick={toggleFilterModal}></div>

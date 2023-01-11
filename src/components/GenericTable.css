@@ -78,8 +78,9 @@ body {
     border: none;
     background-color: transparent;
     /* margin-bottom: 10px; */
-    font-size: 12px;
-    padding: 0 2px 6px;
+    font-size: 16px;
+    padding: 0 0 0 4px;
+    max-height: 16px;
 }
 
 .theadBtn:hover {
@@ -111,7 +112,7 @@ table {
 }
 
 thead th {
-    padding: 8px 15px 0 12px;
+    padding: 5px 15px 0 12px;
 
 }
 
