@@ -32,6 +32,7 @@ const ColumnFilter = ({ column }) => {
 
     // Herunder returneres et button-tag med et state, som renderer en modal med et input-tag og en gennemsigtig baggrund
     // Hvordan fjerner vi aíndhold i FilterInput, mens vi samtidig sikrer os, at den renderer påny?
+    // pr
 
     return (
         <>
