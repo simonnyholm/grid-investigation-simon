@@ -1,6 +1,7 @@
 import ColumnFilter from '../components/ColumnFilter.js'
 import { BsChevronRight } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
+import numeral from "numeral";
 import genericTableCss from "./GenericTable.css"
 
 
@@ -96,7 +97,8 @@ export const COLUMNS = [
         {
           Header: 'Beløb',
           accessor: 'amount',
-          Filter: ColumnFilter
+          Filter: ColumnFilter,
+          aggregate: (leafValues) => leafValues.reduce((a, b) => a.add(b), numeral(0)).format("0.00")
         },
         {
           Header: 'Konto',
