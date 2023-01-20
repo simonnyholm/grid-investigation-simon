@@ -52,7 +52,7 @@ const ColumnFilter = ({ column }) => {
             }}/>
             </label>
             {/* <div className='closeFilterModal' onClick={(e) => setFilterInput(null)}><RiCloseCircleLine/></div> */}
-            <div className='closeFilterModal' onClick={toggleFilterModal}><BiChevronUpCircle/></div>
+            <button className='closeFilterModal' onClick={toggleFilterModal}><BiChevronUpCircle/></button>
         </div>
         </>
         
