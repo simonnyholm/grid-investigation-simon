@@ -4,14 +4,17 @@ import { BsChevronDown } from "react-icons/bs";
 import numeral from "numeral";
 import genericTableCss from "./GenericTable.css"
 
+function toggleByOnKeyUp () {
+  console.log("btn toggled by onKeyUp");
 
+}
 
 export const COLUMNS = [
       {
         // Build our expander column
         id: 'expander', // Make sure it has an ID
         Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
-          <span {...getToggleAllRowsExpandedProps()}>
+          <span role="button" onKeyUp={toggleByOnKeyUp} tabIndex="0" {...getToggleAllRowsExpandedProps()}>
             {isAllRowsExpanded ? <BsChevronDown size={18}/> : <BsChevronRight size={18}/>}
           </span>
         ),
@@ -19,7 +22,7 @@ export const COLUMNS = [
           // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
           // to build the toggle for expanding a row
           row.canExpand ? (
-            <span
+            <span role="button" onKeyUp={toggleByOnKeyUp} tabIndex="0"
               {...row.getToggleRowExpandedProps({
                 style: {
                   // We can even use the row.depth property
