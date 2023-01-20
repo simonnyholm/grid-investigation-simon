@@ -27,38 +27,7 @@ export const COLUMNS = [
                   // of the row
                   paddingLeft: `${row.depth * 2}rem`,
                 },
-                onClick: () => {
-                  const expandedRow = rows.find(row => row.isExpanded);
-                  // ExpandedRow: rows, som er expanderede
 
-                  if (expandedRow) {
-                    const isSubItemOfRow = Boolean(
-                      expandedRow && row.id.split(".")[0] === expandedRow.id
-                    );
-
-                    if (isSubItemOfRow) {
-                      const expandedSubItem = expandedRow.subRows.find(
-                        subRow => subRow.isExpanded
-                      );
-
-                      if (expandedSubItem) {
-                        const isClickedOnExpandedSubItem =
-                          expandedSubItem.id === row.id;
-                        if (!isClickedOnExpandedSubItem) {
-                          toggleRowExpanded(expandedSubItem.id, false);
-                        }
-                      }
-                    } else {
-                      toggleRowExpanded(expandedRow.id, false);
-                    }
-                    
-                  }
-                  else {
-                  row.toggleRowExpanded();
-                  console.log("unExpand");  
-                  }
-
-                }
               })}
             >
               {row.isExpanded ? <BsChevronDown size={15}/> : <BsChevronRight size={15}/>}
@@ -68,7 +37,10 @@ export const COLUMNS = [
         {
           Header: 'Debitor',
           accessor: 'debtor.patientKey',
-          Filter: ColumnFilter
+          Filter: ColumnFilter,
+          aggregate: function(leafValues) {
+            return leafValues[0]
+          }
 
         },
         {
@@ -79,7 +51,10 @@ export const COLUMNS = [
         {
             Header: 'Leverandør',
             accessor: 'supplier.name',
-            Filter: ColumnFilter
+            Filter: ColumnFilter,
+            aggregate: function(leafValues) {
+              return leafValues[0]
+            }
         },
         {
             Header: 'Ydelse',
@@ -117,12 +92,18 @@ export const COLUMNS = [
         {
           Header: 'Status',
           accessor: 'state',
-          Filter: ColumnFilter
+          Filter: ColumnFilter,
+          aggregate: function(leafValues) {
+            return leafValues[0]
+          }
         },
         {
           Header: 'Overført',
           accessor: 'ExportTime',
-          Filter: ColumnFilter
+          Filter: ColumnFilter,
+          aggregate: function(leafValues) {
+            return leafValues[0]
+          }
         },
         
 
