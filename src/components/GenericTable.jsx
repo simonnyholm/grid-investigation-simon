@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 const GenericTable = () => {
 
-    // Here we flatMap the indivdual transaction arrays into one flat array test
+    // Here we flatMap the indivdual transaction arrays into one flat array test test
 
     const flatData = dataJson.flatMap((transactionGroup) => transactionGroup.transactions);
 
