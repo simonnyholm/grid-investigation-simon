@@ -87,7 +87,10 @@ export const COLUMNS = [
         },
         {
           Header: 'Periode',
-          accessor: 'billingStartDate',
+          accessor: function(row, rowIndex) {
+            debugger;
+            return row.billingStartDate + " - " + row.billingEndDate;
+          },
           Filter: ColumnFilter
         },
         {
