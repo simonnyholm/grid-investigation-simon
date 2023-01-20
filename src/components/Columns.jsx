@@ -1,6 +1,7 @@
 import ColumnFilter from '../components/ColumnFilter.js'
 import { BsChevronRight } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
+import numeral from "numeral";
 import genericTableCss from "./GenericTable.css"
 
 
@@ -88,7 +89,6 @@ export const COLUMNS = [
         {
           Header: 'Periode',
           accessor: function(row, rowIndex) {
-            debugger;
             return row.billingStartDate + " - " + row.billingEndDate;
           },
           Filter: ColumnFilter
@@ -96,7 +96,13 @@ export const COLUMNS = [
         {
           Header: 'Beløb',
           accessor: 'amount',
-          Filter: ColumnFilter
+          Filter: ColumnFilter,
+          Cell: ({ value }) => numeral(value).format("0.00"),
+          aggregate: function(leafValues) {
+            const initialValue = numeral(0);
+            const sum = leafValues.reduce((a, b) => a.add(b), initialValue);
+            return sum.value();
+          }
         },
         {
           Header: 'Konto',
