@@ -5,7 +5,11 @@ import numeral from "numeral";
 import genericTableCss from "./GenericTable.css"
 
 function toggleByOnKeyUp () {
-  console.log("btn toggled by onKeyUp");
+  console.log("btn toggled by onKeyUp"); 
+  //Meant for working ot a way to toggle non-btn-tagged buttons via onKeyUp events,
+  //so that users that do not use a mouse can expand the grouped rows
+  //This function might be replaced with a built-in function from the react tables library
+  //We just need to work out what function :D
 
 }
 
