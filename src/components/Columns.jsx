@@ -89,7 +89,6 @@ export const COLUMNS = [
         {
           Header: 'Periode',
           accessor: function(row, rowIndex) {
-            debugger;
             return row.billingStartDate + " - " + row.billingEndDate;
           },
           Filter: ColumnFilter
@@ -98,7 +97,12 @@ export const COLUMNS = [
           Header: 'Beløb',
           accessor: 'amount',
           Filter: ColumnFilter,
-          aggregate: (leafValues) => leafValues.reduce((a, b) => a.add(b), numeral(0)).format("0.00")
+          Cell: ({ value }) => numeral(value).format("0.00"),
+          aggregate: function(leafValues) {
+            const initialValue = numeral(0);
+            const sum = leafValues.reduce((a, b) => a.add(b), initialValue);
+            return sum.value();
+          }
         },
         {
           Header: 'Konto',
