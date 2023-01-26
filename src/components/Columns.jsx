@@ -1,8 +1,8 @@
 import ColumnFilter from '../components/ColumnFilter.js'
 import { BsChevronRight } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
-import numeral from "numeral";
-import genericTableCss from "./GenericTable.css"
+import preciseSum from "./utils/preciseSum";
+import formatCurrency from './utils/formatCurrency.js';
 
 function toggleByOnKeyUp () {
   console.log("btn toggled by onKeyUp"); 
@@ -79,12 +79,8 @@ export const COLUMNS = [
           Header: 'Beløb',
           accessor: 'amount',
           Filter: ColumnFilter,
-          Cell: ({ value }) => numeral(value).format("0.00"),
-          aggregate: function(leafValues) {
-            const initialValue = numeral(0);
-            const sum = leafValues.reduce((a, b) => a.add(b), initialValue);
-            return sum.value();
-          }
+          Cell: formatCurrency,
+          aggregate: preciseSum
         },
         {
           Header: 'Konto',
