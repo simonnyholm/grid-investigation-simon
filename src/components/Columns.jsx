@@ -3,6 +3,7 @@ import { BsChevronRight } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
 import numeral from "numeral";
 import genericTableCss from "./GenericTable.css"
+import AggregateDiv from './AggregateDiv.js';
 
 function toggleByOnKeyUp () {
   console.log("btn toggled by onKeyUp"); 
@@ -45,9 +46,8 @@ export const COLUMNS = [
           Header: 'Debitor',
           accessor: 'debtor.patientKey',
           Filter: ColumnFilter,
-          aggregate: function(leafValues) {
-            return leafValues[0]
-          }
+          aggregate: AggregateDiv
+          
 
         },
         {
@@ -59,9 +59,8 @@ export const COLUMNS = [
             Header: 'Leverandør',
             accessor: 'supplier.name',
             Filter: ColumnFilter,
-            aggregate: function(leafValues) {
-              return leafValues[0]
-            }
+            aggregate: AggregateDiv
+            
         },
         {
             Header: 'Ydelse',
@@ -73,7 +72,8 @@ export const COLUMNS = [
           accessor: function(row, rowIndex) {
             return row.billingStartDate + " - " + row.billingEndDate;
           },
-          Filter: ColumnFilter
+          Filter: ColumnFilter,
+          aggregate: AggregateDiv
         },
         {
           Header: 'Beløb',
@@ -100,17 +100,13 @@ export const COLUMNS = [
           Header: 'Status',
           accessor: 'state',
           Filter: ColumnFilter,
-          aggregate: function(leafValues) {
-            return leafValues[0]
-          }
+          aggregate: AggregateDiv
         },
         {
           Header: 'Overført',
           accessor: 'ExportTime',
           Filter: ColumnFilter,
-          aggregate: function(leafValues) {
-            return leafValues[0]
-          }
+          aggregate: AggregateDiv
         },
         
 
