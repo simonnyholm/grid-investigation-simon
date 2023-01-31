@@ -1,8 +1,7 @@
 import ColumnFilter from '../components/ColumnFilter.js'
 import { BsChevronRight } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs"
-import numeral from "numeral";
-import genericTableCss from "./GenericTable.css"
+
 import AggregateDiv from './AggregateDiv.js';
 
 import preciseSum from "./utils/preciseSum";
