@@ -9,7 +9,7 @@ import { TbSortAscending } from "react-icons/tb";
 import { useState } from 'react';
 
 
-const GenericTable = ({ COLUMNS, flatData, groupBy = ["patient.name"]}) => {
+const GenericTable = ( /*{ COLUMNS, flatData, groupBy = ["patient.name"]}*/) => {
 
     // Here we flatMap the indivdual transaction arrays into one flat array test test
 
