@@ -11,17 +11,53 @@ export default {
 
 const testData = [
     {
-        name: "John Doe",
-        age: 44,
-        address: {
-            city: "Odense"
+        deptor: {
+            key: "221166-5621",
+            name: "Poul Geertsen"
+
+        },
+        name: "Vask",
+        amount: 440.00,
+        supplier: {
+            name: "Hyldgaarden"
+        }
+
+    },
+    {
+        deptor: {
+            key: "221166-5621",
+            name: "Poul Geertsen"
+
+        },
+        name: "Massage",
+        amount: 540.00,
+        supplier: {
+            name: "Hyldgaarden"
+        }
+
+    },
+    {
+        deptor: {
+            key: "121164-5621",
+            name: "Kirsten Søe"
+
+        },
+        name: "Rengøring",
+        amount: 230.00,
+        supplier: {
+            name: "Vanghuset"
         }
     },
     {
-        name: "Jane Doe",
-        age: 23,
-        address: {
-            city: "Odense"
+        deptor: {
+            key: "121164-5621",
+            name: "Kirsten Søe"
+
+        },
+        name: "Gåtur",
+        amount: 230.00,
+        supplier: {
+            name: "Vanghuset"
         }
     }
 ];
@@ -33,18 +69,31 @@ const testColumns = [
         Cell: RowExpander,
     },
     {
-        Header: 'Full name',
+        Header: 'Debitor',
+        accessor: 'deptor.key',
+        Filter: ColumnFilter,
+        aggregate: AggregateDiv,
+    },
+    {
+        Header: 'Navn',
+        accessor: 'deptor.name',
+        Filter: ColumnFilter,
+        aggregate: AggregateDiv,
+    },
+    {
+        Header: 'Ydelse',
         accessor: 'name',
         Filter: ColumnFilter,
+        aggregate: AggregateDiv,
     },
     {
-        Header: 'Age',
-        accessor: 'age',
+        Header: 'Beløb',
+        accessor: 'amount',
         Filter: ColumnFilter,
     },
     {
-        Header: 'City',
-        accessor: 'address.city',
+        Header: 'Supplier',
+        accessor: 'supplier.name',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
     },
@@ -56,5 +105,12 @@ export const BasicExample = Template.bind({});
 BasicExample.args = {
     data: testData,
     columns: testColumns,
-    groupBy: ['address.city'],
+    groupBy: [],
+};
+
+export const GroupedExample = Template.bind({});
+GroupedExample.args = {
+    data: testData,
+    columns: testColumns,
+    groupBy: ['deptor.key'],
 };
