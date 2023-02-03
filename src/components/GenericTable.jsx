@@ -1,6 +1,5 @@
 import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect, useGroupBy } from "react-table";
-import dataJson from '../data.json'
-import { COLUMNS } from "./Columns";
+
 import { useMemo } from 'react';
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
 import { TbArrowsSort } from "react-icons/tb";
@@ -9,19 +8,11 @@ import { TbSortAscending } from "react-icons/tb";
 import { useState } from 'react';
 
 
-const GenericTable = () => {
+const GenericTable = ( { columns, data, groupBy = []}) => {
 
     // Here we flatMap the indivdual transaction arrays into one flat array test test
 
-    const flatData = dataJson.flatMap((transactionGroup) => transactionGroup.transactions);
 
-    console.log("flatData", flatData);
-
-    // Column definitions and groupBy as well as thge main data source is declared
-
-    const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => flatData, [])
-    const groupBy = useMemo(() => ["patient.name"], []);
 
     // onClick innerText Variable is declared
 
