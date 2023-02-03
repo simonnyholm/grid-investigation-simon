@@ -6,6 +6,8 @@ import AggregateDiv from './AggregateDiv.js';
 
 import preciseSum from "./utils/preciseSum";
 import formatCurrency from './utils/formatCurrency.js';
+import RowExpander from './RowExpander.jsx';
+import HeaderExpander from './HeaderExpander.jsx';
 
 
 function toggleByOnKeyUp () {
@@ -21,29 +23,8 @@ export const COLUMNS = [
       {
         // Build our expander column
         id: 'expander', // Make sure it has an ID
-        Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
-          <span role="button" onKeyUp={toggleByOnKeyUp} tabIndex="0" {...getToggleAllRowsExpandedProps()}>
-            {isAllRowsExpanded ? <BsChevronDown size={18}/> : <BsChevronRight size={18}/>}
-          </span>
-        ),
-        Cell: ({ row, rows, toggleRowExpanded }) =>
-          // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
-          // to build the toggle for expanding a row
-          row.canExpand ? (
-            <span role="button" onKeyUp={toggleByOnKeyUp} tabIndex="0"
-              {...row.getToggleRowExpandedProps({
-                style: {
-                  // We can even use the row.depth property
-                  // and paddingLeft to indicate the depth
-                  // of the row
-                  paddingLeft: `${row.depth * 2}rem`,
-                },
-
-              })}
-            >
-              {row.isExpanded ? <BsChevronDown size={15}/> : <BsChevronRight size={15}/>}
-            </span>
-            ) : null,
+        Header: HeaderExpander,
+        Cell: RowExpander
         },
         {
           Header: 'Debitor',

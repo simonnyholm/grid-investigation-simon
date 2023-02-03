@@ -6,6 +6,7 @@ import { TbArrowsSort } from "react-icons/tb";
 import { TbSortDescending } from "react-icons/tb";
 import { TbSortAscending } from "react-icons/tb";
 import { useState } from 'react';
+import "./GenericTable.css"
 
 
 const GenericTable = ( { columns, data, groupBy = []}) => {

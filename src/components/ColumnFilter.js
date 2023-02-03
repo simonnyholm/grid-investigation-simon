@@ -7,8 +7,6 @@ import { BiChevronUpCircle } from "react-icons/bi"
 import { HiOutlineFilter } from "react-icons/hi"
 import { HiFilter } from "react-icons/hi"
 
-import genericTableCss from "./GenericTable.css"
-
 const ColumnFilter = ({ column }) => {
     const { filterValue, setFilter } = column
 
