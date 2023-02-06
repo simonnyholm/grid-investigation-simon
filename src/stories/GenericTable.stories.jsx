@@ -5,7 +5,7 @@ import HeaderExpander from "../components/HeaderExpander";
 import AggregateDiv from "../components/AggregateDiv";
 import formatCurrency from "../components/utils/formatCurrency";
 import preciseSum from "../components/utils/preciseSum";
-import { DateTime, setLocale, toLocaleString } from "luxon";
+import { DateTime } from "luxon";
 
 export default {
     title: 'Table examples/Generic React Table',
