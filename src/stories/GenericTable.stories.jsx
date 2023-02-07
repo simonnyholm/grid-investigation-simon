@@ -16,6 +16,7 @@ export default {
 
 const utcFormat = new Intl.DateTimeFormat('da', {day: 'numeric', month: 'short', year: 'numeric'});
 
+//Move the above to molecule component
 
 const testData = [
     {
