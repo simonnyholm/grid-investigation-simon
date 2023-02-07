@@ -6,5 +6,7 @@ export default function utcFormat({ value }){
 
     const exportTimeVar = utcFormatConst.format(new Date(value))
 
+    console.log("exportTimeVar", exportTimeVar);
+
     return exportTimeVar
 }
