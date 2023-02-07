@@ -5,6 +5,7 @@ import HeaderExpander from "../components/HeaderExpander";
 import AggregateDiv from "../components/AggregateDiv";
 import formatCurrency from "../components/utils/formatCurrency";
 import preciseSum from "../components/utils/preciseSum";
+// import utcFormat from "../components/utcFormat";
 import { DateTime } from "luxon";
 
 export default {
@@ -12,8 +13,8 @@ export default {
     component: GenericTable
 };
 
-const utcFormat = new Intl.DateTimeFormat('da', {day: 'numeric', month: 'short', year: 'numeric'});
 
+const utcFormat = new Intl.DateTimeFormat('da', {day: 'numeric', month: 'short', year: 'numeric'});
 
 
 const testData = [
@@ -394,11 +395,12 @@ const groupedColumns = [
     },
     {
         Header: 'Overført',
-        accessor: function(row, rowIndex) {
+        Cell: function({ value }) {
 
-            const exportTimeVar = utcFormat.format(new Date(row.exportTime))
+            const exportTimeVar = utcFormat.format(new Date(value))
 
             return exportTimeVar},
+        accessor: 'exportTime',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
     },
@@ -444,8 +446,6 @@ const groupedColumnsAllAggregated = [
 
             var endTime = DateTime.fromISO(row.billingEndDate).toLocaleString(DateTime.DATE_MED, { locale: 'da' })
 
-            console.log(endTime);
-
             return startTime + " - " + endTime},
         
     
@@ -482,9 +482,10 @@ const groupedColumnsAllAggregated = [
         Header: 'Overført',
         accessor: function(row, rowIndex) {
 
-            const exportTimeVar = utcFormat.format(new Date(row.exportTime))
+            const exportTimeConst = utcFormat.format(new Date(row.exportTime))
 
-            return exportTimeVar},
+            return exportTimeConst},
+
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
     },
