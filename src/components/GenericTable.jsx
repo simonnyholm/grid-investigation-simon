@@ -11,7 +11,7 @@ import "./GenericTable.css"
 
 const GenericTable = ( { columns, data, groupBy = []}) => {
 
-    // Here we flatMap the indivdual transaction arrays into one flat array test test
+    
 
 
 
@@ -22,11 +22,14 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
 
     // React-table hooks are declared and the row selection component is rendered into the table
 
+    const columnOrdered = ['expander', "1", 'selection']
+
     const tableInstance = useTable({
         columns,
         data,
         initialState: {
-            groupBy
+            groupBy,
+            columnOrder: columnOrdered
         }
     },
     useGlobalFilter,
@@ -83,7 +86,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
             
             <thead>
                
-               <tr className="topBar"></tr>
+               
                 {
                     headerGroups.map((headerGroup) => (            
                         <tr className="theadRow" key="" {...headerGroup.getHeaderGroupProps()}>

@@ -327,12 +327,14 @@ const groupedColumns = [
         Cell: RowExpander,
     },
     {
+        id: "1",
         Header: 'Debitor',
         accessor: 'deptor.key',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
     },
     {
+       id: "2", 
         Header: 'Borger',
         accessor: function(row, rowIndex) {
             return row.patient.name + " " + row.patient.businessKey},
@@ -340,12 +342,14 @@ const groupedColumns = [
         aggregate: AggregateDiv,
     },
     {
+        id: "3",
         Header: 'Leverandør',
         accessor: 'supplier.name',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
     },
     {
+        id: "4",
         Header: 'Ydelse',
         accessor: 'name',
         Filter: ColumnFilter,

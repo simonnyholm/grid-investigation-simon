@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAsyncDebounce } from 'react-table';
+import { RiCloseFill } from "react-icons/ri";
 import { RiFileSearchLine } from "react-icons/ri";
 import { RiFileSearchFill } from "react-icons/ri";
 import { RiCloseCircleLine } from "react-icons/ri";
@@ -43,14 +44,14 @@ const ColumnFilter = ({ column }) => {
             
             <label alt="Søg" title="Søg">
                 
-            <input className='filterModalInput' placeholder='Søg' type="text" value={value || ''} onChange={(e) => {
+            <input className='filterModalInput' placeholder='Filtrér...' type="text" value={value || ''} onChange={(e) => {
                 setValue(e.target.value)
                 keyupHandler(e.target.value)
                 setFilterInput(e.target.value)
             }}/>
             </label>
             {/* <div className='closeFilterModal' onClick={(e) => setFilterInput(null)}><RiCloseCircleLine/></div> */}
-            <button className='closeFilterModal' onClick={toggleFilterModal}><BiChevronUpCircle/></button>
+            <button className='closeFilterModal' onClick={toggleFilterModal}><RiCloseFill/></button>
         </div>
         </>
         
