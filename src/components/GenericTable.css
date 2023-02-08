@@ -142,23 +142,7 @@ thead tr {
     padding: 2px 0 0 0;
 }
 
-/*Table body*/
 
-tbody tr {
-    border: 1px solid rgb(221, 221, 221);
-    
-    background-color: #ffffff;
-    
-}
-
-tbody tr:hover {
-    background-color: rgb(220, 245, 232);
-}
-
-tbody td {
-    padding: 15px 10px;
-    font-size: 15px;
-}
 
 
 
@@ -231,6 +215,24 @@ thead tr th:nth-child(3) div button {
 
 .expandedTr {
     background-color: aquamarine;
+}
+
+/*Table body*/
+
+tbody tr {
+    border: 1px solid rgb(221, 221, 221);
+    
+    background-color: #ffffff;
+    
+}
+
+tbody tr:hover {
+    background-color: rgb(220, 245, 232);
+}
+
+tbody td {
+    padding: 15px 10px;
+    font-size: 15px;
 }
 
 
