@@ -66,7 +66,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
 
     // Props from TableInstance is destructured
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state: {expanded, selectedRowIds}, setGlobalFilter} = tableInstance
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, selectedFlatRows, getRowProps, state: {expanded, selectedRowIds}, setGlobalFilter} = tableInstance
 
 
     console.log("rowsLength", rows.length);
@@ -132,7 +132,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
                 }
             </tbody>
         </table>
-        <p className="rowsLength">{rows.length}</p>
+        <p className="rowsLength">{rows.length} rækker er vist. {rows.selectedFlatRows && rows.selectedFlatRows.length()}</p>
        
         </>
     )
