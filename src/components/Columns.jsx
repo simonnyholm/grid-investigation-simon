@@ -1,14 +1,9 @@
 import ColumnFilter from '../components/ColumnFilter.js'
-import { BsChevronRight } from "react-icons/bs";
-import { BsChevronDown } from "react-icons/bs"
-
 import AggregateDiv from './AggregateDiv.js';
-
 import preciseSum from "./utils/preciseSum";
 import formatCurrency from './utils/formatCurrency.js';
 import RowExpander from './RowExpander.jsx';
 import HeaderExpander from './HeaderExpander.jsx';
-
 
 function toggleByOnKeyUp () {
   console.log("btn toggled by onKeyUp"); 
@@ -19,7 +14,7 @@ function toggleByOnKeyUp () {
 
 }
 
-export const COLUMNS = [
+export const COLUMNS = (t) => [
       {
         // Build our expander column
         id: 'expander', // Make sure it has an ID
@@ -80,7 +75,8 @@ export const COLUMNS = [
           Header: 'Status',
           accessor: 'state',
           Filter: ColumnFilter,
-          aggregate: AggregateDiv
+          aggregate: AggregateDiv,
+          Cell: ({ value }) => t('transactionstate.' + value)
         },
         {
           Header: 'Overført',

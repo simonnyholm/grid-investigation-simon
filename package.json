@@ -15,10 +15,12 @@
     "ag-grid-community": "^28.2.0",
     "ag-grid-react": "^28.2.0",
     "bootstrap": "^5.2.2",
+    "i18next": "^22.4.9",
     "numeral": "^2.0.6",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.1.5",
     "react-icons": "^4.7.1",
     "react-scripts": "5.0.1",
     "react-table": "^7.8.0",
@@ -62,7 +64,6 @@
     ]
   },
   "devDependencies": {
-    "jest": "^27.5.1",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -74,6 +75,7 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "jest": "^27.5.1",
     "prop-types": "^15.8.1",
     "webpack": "^5.75.0"
   }
