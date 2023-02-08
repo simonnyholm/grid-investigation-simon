@@ -115,7 +115,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
                         prepareRow(row)
                         return (
                                 <>
-                                <tr key={i} {...row.getRowProps()} className={row.isSelected ? "SelectedRow" : "" }>
+                                <tr key={i} {...row.getRowProps()}  className={!row.isSelected ? (row.isGrouped ? "GroupedRow" : "") : "SelectedRow"}>
                                     {
                                         row.cells.map( cell => {
                                             return  (

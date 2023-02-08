@@ -1,6 +1,6 @@
 
 /* Her følger en quick'n'dirty css-styling af komponentet */
-/* Skal dette helt eller delvist omsættes til et andet format? */
+/* Skal dette helt eller delvist omsættes til et andet format order? */
 
 /* Standard-setup */
 
@@ -180,11 +180,15 @@ thead tr th:nth-child(3) {
     border-right: 1px solid rgb(192, 192, 192);
     padding-top: 1px;
     padding-right: 4px;
+    order: 1;
 }
 
 tbody tr td:nth-child(1) {
     border-right: 1px solid rgb(221, 221, 221);
     padding-left: 2vw;
+    order: 2;
+    display: block !important;
+    
 }
 
 tbody tr td:nth-child(3) {
@@ -203,6 +207,12 @@ thead tr th:nth-child(3) div button {
 .SelectedRow {
     background-color: rgb(206, 231, 255);
 }
+
+.GroupedRow {
+    background-color: #f1eeca;
+}
+
+
 
 
 
@@ -235,7 +245,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-    background-color: rgb(220, 245, 232);
+    background-color: rgb(240, 251, 243);
 }
 
 tbody td {
