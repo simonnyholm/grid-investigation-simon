@@ -200,6 +200,12 @@ thead tr th:nth-child(3) div button {
     display: none;
 }
 
+.SelectedRow {
+    background-color: rgb(206, 231, 255);
+}
+
+
+
 
 /*columnTH*/
 

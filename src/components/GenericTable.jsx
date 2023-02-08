@@ -1,4 +1,4 @@
-import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect, useGroupBy } from "react-table";
+import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect, useGroupBy, isSelected } from "react-table";
 
 import { useMemo } from 'react';
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
@@ -7,6 +7,7 @@ import { TbSortDescending } from "react-icons/tb";
 import { TbSortAscending } from "react-icons/tb";
 import { useState } from 'react';
 import "./GenericTable.css"
+import { isRowSelected } from "@tanstack/table-core";
 
 
 const GenericTable = ( { columns, data, groupBy = []}) => {
@@ -114,7 +115,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
                         prepareRow(row)
                         return (
                                 <>
-                                <tr key={i} {...row.getRowProps()}>
+                                <tr key={i} {...row.getRowProps()} className={row.isSelected ? "SelectedRow" : "" }>
                                     {
                                         row.cells.map( cell => {
                                             return  (
