@@ -159,11 +159,11 @@ thead tr th:nth-child(1) {
     
 }
 
-.rowsLength {
-    height: 28px;
+.counterDiv {
+    height: 50px;
     width: 100vw;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 15px 20px 0 20px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 500;

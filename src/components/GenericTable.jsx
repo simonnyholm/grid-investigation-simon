@@ -131,8 +131,11 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
                     })
                 }
             </tbody>
+            <tfoot>
+            <tr className="counterDiv">{rows.length} rækker er vist. {rows.selectedFlatRows && rows.selectedFlatRows.length()}</tr>
+            </tfoot>
         </table>
-        <p className="rowsLength">{rows.length} rækker er vist. {rows.selectedFlatRows && rows.selectedFlatRows.length()}</p>
+        
        
         </>
     )

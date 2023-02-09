@@ -8,6 +8,7 @@ import preciseSum from "../components/utils/preciseSum";
 import utcFormat from "../components/utcFormat";
 import { DateTime } from "luxon";
 
+
 export default {
     title: 'Table examples/Generic React Table',
     component: GenericTable
@@ -332,6 +333,7 @@ const groupedColumns = [
         accessor: 'deptor.key',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
+        
     },
     {
        id: "2", 
