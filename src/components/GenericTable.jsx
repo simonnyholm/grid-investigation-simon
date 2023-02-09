@@ -1,4 +1,4 @@
-import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect, useGroupBy } from "react-table";
+import { useTable, useSortBy, useFilters, useGlobalFilter, useExpanded, usePagination, useRowSelect, useGroupBy, isSelected } from "react-table";
 
 import { useMemo } from 'react';
 import IndeterminateCheckbox from "./IndeterminateCheckbox";
@@ -7,11 +7,12 @@ import { TbSortDescending } from "react-icons/tb";
 import { TbSortAscending } from "react-icons/tb";
 import { useState } from 'react';
 import "./GenericTable.css"
+import { isRowSelected } from "@tanstack/table-core";
 
 
 const GenericTable = ( { columns, data, groupBy = []}) => {
 
-    // Here we flatMap the indivdual transaction arrays into one flat array test test
+    
 
 
 
@@ -22,11 +23,14 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
 
     // React-table hooks are declared and the row selection component is rendered into the table
 
+    const columnOrdered = ['expander', "1", 'selection']
+
     const tableInstance = useTable({
         columns,
         data,
         initialState: {
-            groupBy
+            groupBy,
+            columnOrder: columnOrdered
         }
     },
     useGlobalFilter,
@@ -62,7 +66,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
 
     // Props from TableInstance is destructured
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, getRowProps, state: {expanded, selectedRowIds}, setGlobalFilter} = tableInstance
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, selectedFlatRows, getRowProps, state: {expanded, selectedRowIds}, setGlobalFilter} = tableInstance
 
 
     console.log("rowsLength", rows.length);
@@ -83,7 +87,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
             
             <thead>
                
-               <tr className="topBar"></tr>
+               
                 {
                     headerGroups.map((headerGroup) => (            
                         <tr className="theadRow" key="" {...headerGroup.getHeaderGroupProps()}>
@@ -111,7 +115,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
                         prepareRow(row)
                         return (
                                 <>
-                                <tr key={i} {...row.getRowProps()}>
+                                <tr key={i} {...row.getRowProps()}  className={!row.isSelected ? (row.isGrouped ? "GroupedRow" : "") : "SelectedRow"}>
                                     {
                                         row.cells.map( cell => {
                                             return  (
@@ -127,8 +131,11 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
                     })
                 }
             </tbody>
+            <tfoot>
+            <tr className="counterDiv">{rows.length} rækker er vist. {rows.selectedFlatRows && rows.selectedFlatRows.length()}</tr>
+            </tfoot>
         </table>
-        <p className="rowsLength">{rows.length}</p>
+        
        
         </>
     )

@@ -25,36 +25,45 @@ body {
 }
 
 .filterModal {
-    border: 0.5px solid rgb(173, 173, 173) !important;
-    padding: 5px !important;
+    border: 0.5px solid rgb(158, 158, 158) !important;
+    padding: 10px !important;
     position: absolute !important;
-    background-color: #d0cb91 !important;
+    background-color: #ebebeb !important;
     margin-left: -75px !important;
-    margin-top: 0 !important;
+    margin-top: 10px !important;
     z-index: 2 !important;
     display: flex;
-    justify-content: space-around;
-    border-radius: 0 0 10px 10px;
-    width: 130px;
+    justify-content: space-between;
+    border-radius: 2px;
+    width: 200px;
 
 
 }
 
 .filterModalInput {
-    width: 85px;
-    height: 25px;
+    width: 150px;
+    height: 30px;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 3px;
     border: 0.5px solid rgb(173, 173, 173) !important;
 }
 
+.filterModalInput:focus {
+    border: 0.5px solid #83c4f9;
+}
+
 .closeFilterModal {
-    padding-right: 2px;
-    padding-top: 2px;
-    font-size: 15px;
+    padding: 1.5px 3px;
+    font-size: 13px;
+    color: #ffffff;
+    background-color: rgb(87, 171, 2);
+    border-radius: none;
+    border: none;
+
 }
 
 .closeFilterModal:hover {
+    background-color: rgb(1, 77, 100);
     color:rgb(255, 255, 255);
 }
 
@@ -95,17 +104,10 @@ body {
 
 table {
     width: 100%;
+    border-collapse: collapse;
 }
 
-.topRow {
-  background-color: cornflowerblue; 
-  position: sticky;
-  top: 0;
-  padding: 20px;
-  width: 100%;
 
- 
-}
 
 .topRow tr{
     width: 100%;
@@ -157,20 +159,21 @@ thead tr th:nth-child(1) {
     
 }
 
-.rowsLength {
-    height: 28px;
-    width: 34px;
+.counterDiv {
+    height: 50px;
+    width: 100vw;
     background-color: #ffffff;
-    padding: 5px 5px;
-    margin-top: 20px;
-    font-size: 12px;
+    padding: 15px 20px 0 20px;
+    margin-bottom: 0;
+    font-size: 14px;
     font-weight: 500;
     text-align: center;
     border: 1px solid rgb(221, 221, 221);
-    border-radius: 10px;
+    border-radius: none;
     position: fixed;
-    top: 0.2vh;
-    left: 5px;
+    bottom: -1px;
+    left: 0;
+    margin: 0;
 
 }
 
@@ -178,11 +181,15 @@ thead tr th:nth-child(3) {
     border-right: 1px solid rgb(192, 192, 192);
     padding-top: 1px;
     padding-right: 4px;
+    order: 1;
 }
 
 tbody tr td:nth-child(1) {
     border-right: 1px solid rgb(221, 221, 221);
     padding-left: 2vw;
+    order: 2;
+    display: block !important;
+    
 }
 
 tbody tr td:nth-child(3) {
@@ -197,6 +204,18 @@ thead tr th:nth-child(1) div button {
 thead tr th:nth-child(3) div button {
     display: none;
 }
+
+.SelectedRow {
+    background-color: rgb(206, 231, 255);
+}
+
+.GroupedRow {
+    background-color: #f1eeca;
+}
+
+
+
+
 
 
 /*columnTH*/
@@ -227,7 +246,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-    background-color: rgb(220, 245, 232);
+    background-color: rgb(240, 251, 243);
 }
 
 tbody td {
