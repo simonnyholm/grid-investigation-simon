@@ -15,9 +15,11 @@ export default {
 };
 
 
+
+
 const testData = [
     {
-        deptor: {
+        debtor: {
             key: "221166-5621",
             name: "Poul Geertsen"
 
@@ -43,7 +45,7 @@ const testData = [
 
     },
     {
-        deptor: {
+        debtor: {
             key: "221166-5621",
             name: "Poul Geertsen"
 
@@ -69,7 +71,7 @@ const testData = [
 
     },
     {
-        deptor: {
+        debtor: {
             key: "221166-5621",
             name: "Poul Geertsen"
 
@@ -94,7 +96,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "221166-5621",
             name: "Poul Geertsen"
 
@@ -119,7 +121,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "121164-5621",
             name: "Kirsten Søe"
 
@@ -144,7 +146,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "121164-5621",
             name: "Kirsten Søe"
 
@@ -169,7 +171,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "120451-5621",
             name: "Karl Lindeberg"
 
@@ -194,7 +196,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "120451-5621",
             name: "Karl Lindeberg"
 
@@ -218,7 +220,7 @@ const testData = [
         exportTimeEmpty: null,
         accountPaymentType: "672",
     },{
-        deptor: {
+        debtor: {
             key: "110146-3488",
             name: "Fatima Mahmud"
 
@@ -243,7 +245,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "110146-3488",
             name: "Fatima Mahmud"
 
@@ -268,7 +270,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "110146-3488",
             name: "Fatima Mahmud"
 
@@ -293,7 +295,7 @@ const testData = [
         accountPaymentType: "672",
     },
     {
-        deptor: {
+        debtor: {
             key: "291249-3484",
             name: "Lasse Ellestrup"
 
@@ -330,7 +332,7 @@ const groupedColumns = [
     {
         id: "1",
         Header: 'Debitor',
-        accessor: 'deptor.key',
+        accessor: 'debtor.key',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
         
@@ -412,7 +414,7 @@ const groupedColumnsAllAggregated = [
     },
     {
         Header: 'Debitor',
-        accessor: 'deptor.key',
+        accessor: 'debtor.key',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
     },
@@ -488,7 +490,7 @@ const groupedColumnsAllAggregated = [
 const ungroupedColumns = [
     {
         Header: 'Debitor',
-        accessor: 'deptor.key',
+        accessor: 'debtor.key',
         Filter: ColumnFilter,
         aggregate: AggregateDiv,
     },
@@ -563,12 +565,12 @@ export const GroupedExample = Template.bind({});
 GroupedExample.args = {
     data: testData,
     columns: groupedColumns,
-    groupBy: ['deptor.key'],
+    groupBy: ['debtor.key'],
 };
 
 export const GroupedExampleAllColumnsAggregated = Template.bind({});
 GroupedExampleAllColumnsAggregated.args = {
     data: testData,
     columns: groupedColumnsAllAggregated,
-    groupBy: ['deptor.key'],
+    groupBy: ['debtor.key'],
 };
