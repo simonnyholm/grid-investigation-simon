@@ -23,7 +23,7 @@ const GenericTable = ( { columns, data, groupBy = []}) => {
 
     // React-table hooks are declared and the row selection component is rendered into the table
 
-    const columnOrdered = ['expander', "1", 'selection']
+    const columnOrdered = ['expander', 'selection', "1"]
 
     const tableInstance = useTable({
         columns,
