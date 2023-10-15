@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+/*import { FC, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import oldData from './data.json';
 import RowGroup from './RowGroup';
@@ -96,4 +96,4 @@ const RawTableExample: FC<RawTableExampleProps> = () => (
   </Table>
 );
 
-export default RawTableExample;
+export default RawTableExample;*/
