@@ -1,0 +1,278 @@
+[
+  {
+    "debtor": {
+      "key": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "patient": {
+      "businessKey": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "name": "Vask",
+    "amount": 440,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-02-28",
+    "supplier": {
+      "name": "Hyldgaarden"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "patient": {
+      "businessKey": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "name": "Frokost",
+    "amount": 140,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-12-03",
+    "supplier": {
+      "name": "Hyldgaarden"
+    },
+    "accountDisplayValue": 6790038575,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "patient": {
+      "businessKey": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "name": "Omsorgsbesøg",
+    "amount": 140,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-12-02",
+    "supplier": {
+      "name": "Villa Nova"
+    },
+    "accountDisplayValue": 6732034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "patient": {
+      "businessKey": "221166-5621",
+      "name": "Poul Geertsen"
+    },
+    "name": "Massage",
+    "amount": 540,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-12-02",
+    "supplier": {
+      "name": "Hyldgaarden"
+    },
+    "accountDisplayValue": 8690034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "121164-5621",
+      "name": "Kirsten Søe"
+    },
+    "patient": {
+      "businessKey": "121164-5621",
+      "name": "Kirsten Søe"
+    },
+    "name": "Rengøring",
+    "amount": 230,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-12-04",
+    "supplier": {
+      "name": "Vanghuset"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "121164-5621",
+      "name": "Kirsten Søe"
+    },
+    "patient": {
+      "businessKey": "121164-5621",
+      "name": "Kirsten Søe"
+    },
+    "name": "Gåtur",
+    "amount": 230,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-12-02",
+    "supplier": {
+      "name": "Vanghuset"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "120451-5621",
+      "name": "Karl Lindeberg"
+    },
+    "patient": {
+      "businessKey": "120451-5621",
+      "name": "Karl Lindeberg"
+    },
+    "name": "Rengøring",
+    "amount": 230,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-02-28",
+    "supplier": {
+      "name": "Vanghuset"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "120451-5621",
+      "name": "Karl Lindeberg"
+    },
+    "patient": {
+      "businessKey": "120451-5621",
+      "name": "Karl Lindeberg"
+    },
+    "name": "Vask",
+    "amount": 230,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-12-03",
+    "supplier": {
+      "name": "Vanghuset"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "110146-3488",
+      "name": "Fatima Mahmud"
+    },
+    "patient": {
+      "businessKey": "110146-3488",
+      "name": "Fatima Mahmud"
+    },
+    "name": "Rengøring",
+    "amount": 230,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-03-05",
+    "supplier": {
+      "name": "Vanghuset"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "110146-3488",
+      "name": "Fatima Mahmud"
+    },
+    "patient": {
+      "businessKey": "110146-3488",
+      "name": "Fatima Mahmud"
+    },
+    "name": "Vask",
+    "amount": 330,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-04-02",
+    "supplier": {
+      "name": "Vanghuset"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "110146-3488",
+      "name": "Fatima Mahmud"
+    },
+    "patient": {
+      "businessKey": "110146-3488",
+      "name": "Fatima Mahmud"
+    },
+    "name": "Omsorgsbesøg",
+    "amount": 130,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-12-02",
+    "supplier": {
+      "name": "Vanghuset"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  },
+  {
+    "debtor": {
+      "key": "291249-3484",
+      "name": "Lasse Ellestrup"
+    },
+    "patient": {
+      "businessKey": "291249-3484",
+      "name": "Lasse Ellestrup"
+    },
+    "name": "Omsorgsbesøg",
+    "amount": 130,
+    "billingStartDate": "2023-01-02",
+    "billingEndDate": "2023-03-06",
+    "supplier": {
+      "name": "GoCare"
+    },
+    "accountDisplayValue": 6790034175,
+    "state": "WAITING_FOR_EXPORT",
+    "exportTime": "Fri, 20 Jan 2023 11:35:05 GMT",
+    "exportTimeStringDa": "20. jan. 2023 11:35",
+    "exportTimeEmpty": null,
+    "accountPaymentType": "672"
+  }
+]
